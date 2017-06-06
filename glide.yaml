@@ -1,0 +1,3 @@
+package: tradeInfo
+import:
+- package: github.com/gorilla/websocket
