@@ -1,0 +1,8 @@
+{
+    "DBConf":{
+        "Username":"username1",
+        "Password":"Password2",
+        "Address":"Host:Port",
+        "DBName":"DBName"
+    }
+}
