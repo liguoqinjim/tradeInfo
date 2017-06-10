@@ -1,5 +1,5 @@
 hash: 00bc2a912ec3f6bf7eeead78686d5371b65820ade1f462c2d0a81914f74b9d91
-updated: 2017-06-10T16:07:52.3639394+08:00
+updated: 2017-06-10T16:14:25.2444132+08:00
 imports:
 - name: github.com/gorilla/websocket
   version: 3ab3a8b8831546bd18fd182c20687ca853b2bb13
@@ -7,6 +7,8 @@ imports:
   version: 85b1699d505667d13f8ac4478c1debbf85d6c5de
 - name: github.com/tidwall/gjson
   version: c784c417818f59d6597274642d8ac1d09efc9b01
+- name: github.com/tidwall/match
+  version: 173748da739a410c5b0b813b956f89ff94730b4c
 - name: golang.org/x/sys
   version: 0b25a408a50076fbbcae6b7ac0ea5fbb0b085e79
   subpackages:
