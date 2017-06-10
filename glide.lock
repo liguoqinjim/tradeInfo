@@ -1,8 +1,14 @@
-hash: f2af9a1791e5a6d4950b9cf8cc3ee1816e569b13820e75b24edd2871d849b1ef
-updated: 2017-06-10T13:42:49.4626868+08:00
+hash: ddf1ec87ba3532abf04777a2ab283f7da69e8736ba3accc7d2e76b01d2f4ff14
+updated: 2017-06-10T14:25:24.1222009+08:00
 imports:
 - name: github.com/gorilla/websocket
   version: 3ab3a8b8831546bd18fd182c20687ca853b2bb13
 - name: github.com/sirupsen/logrus
   version: 85b1699d505667d13f8ac4478c1debbf85d6c5de
+- name: golang.org/x/sys
+  version: 0b25a408a50076fbbcae6b7ac0ea5fbb0b085e79
+  subpackages:
+  - unix
+- name: gopkg.in/mgo.v2
+  version: 3f83fa5005286a7fe593b055f0d7771a7dce4655
 testImports: []

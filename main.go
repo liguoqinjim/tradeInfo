@@ -1,5 +1,26 @@
 package main
 
-func main() {
+import (
+	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
+	"tradeInfo/msgMgr"
+	"tradeInfo/net"
+)
 
+func main() {
+	//websocket模块
+	net.Connect()
+	net.InitSendMessage()
+
+	//mongodb模块
+
+	//消息处理模块
+	msgMgr.Handle()
+
+	sigs := make(chan os.Signal, 1)
+	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
+	<-sigs
+	fmt.Println("exiting")
 }

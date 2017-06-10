@@ -2,3 +2,4 @@ package: tradeInfo
 import:
 - package: github.com/gorilla/websocket
 - package: github.com/sirupsen/logrus
+- package: gopkg.in/mgo.v2
