@@ -24,6 +24,8 @@ func Connect() {
 			"Sec-WebSocket-Version": []string{"13"}})
 	if err != nil {
 		log.Fatalf("err=%v", err)
+	} else {
+		log.Info("连接websocket success")
 	}
 	conn = con
 

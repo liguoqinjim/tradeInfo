@@ -4,3 +4,8 @@ package util
 const (
 	SEND_INFO_TRADE_SC = `4212["market.subscribe","sc:yunbi"]`
 )
+
+//collection名称
+const (
+	COLLECTION_TRADE_INFO = "trade_info"
+)

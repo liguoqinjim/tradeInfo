@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"tradeInfo/db"
 	"tradeInfo/msgMgr"
 	"tradeInfo/net"
 )
@@ -15,6 +16,7 @@ func main() {
 	net.InitSendMessage()
 
 	//mongodb模块
+	db.Dial()
 
 	//消息处理模块
 	msgMgr.Handle()

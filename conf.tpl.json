@@ -3,6 +3,7 @@
         "Username":"username1",
         "Password":"Password2",
         "Address":"Host:Port",
-        "DBName":"DBName"
+        "ConnectDBName":"DBName连接里面的数据库名称",
+        "DataDBName":"TestName最终存放数据的数据库"
     }
 }
