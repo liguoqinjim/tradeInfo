@@ -3,9 +3,11 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"gopkg.in/mgo.v2"
 	"io/ioutil"
 	"log"
 	"os"
+	"time"
 )
 
 type ConfStruct struct {
@@ -50,4 +52,24 @@ func main() {
 	readConf()
 	fmt.Println(conf)
 
+	session, err := mgo.DialWithInfo(&mgo.DialInfo{
+		Username: conf.Username,
+		Password: conf.Password,
+		Addrs:    []string{conf.Address},
+		Database: conf.ConnectDBName,
+		Timeout:  time.Second * 5,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer session.Close()
+
+	//insert
+	trade := Trade{TradeType: "bid", Date: int(time.Now().Unix()), Price: 0.2222, Amount: 4567, Tid: 2011221}
+	c := session.DB(conf.DataDBName).C("test1")
+	if err := c.Insert(trade); err != nil {
+		log.Fatal(err)
+	} else {
+		fmt.Println("insert 成功")
+	}
 }
