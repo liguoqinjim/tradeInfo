@@ -15,7 +15,6 @@ func init() {
 }
 
 func Dial() {
-	log.Info("连接mongodb1")
 	s, err := mgo.DialWithInfo(&mgo.DialInfo{
 		Addrs:    []string{conf.Conf.DBConf.Address},
 		Username: conf.Conf.DBConf.Username,
@@ -23,7 +22,6 @@ func Dial() {
 		Database: conf.Conf.DBConf.ConnectDBName,
 		Timeout:  time.Second * 10,
 	})
-	log.Info("连接mongodb2")
 	if err != nil {
 		log.Fatalf("err=%v", err)
 	} else {
