@@ -5,12 +5,16 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 	"tradeInfo/db"
+	"tradeInfo/log"
 	"tradeInfo/msgMgr"
 	"tradeInfo/net"
 )
 
 func main() {
+	log.Infof("系统开始时间:%v", time.Now())
+
 	//websocket模块
 	net.Connect()
 	net.InitSendMessage()
@@ -24,5 +28,5 @@ func main() {
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 	<-sigs
-	fmt.Println("exiting")
+	fmt.Println("系统结束时间:%v", time.Now())
 }
