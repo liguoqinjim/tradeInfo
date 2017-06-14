@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/gorilla/websocket"
-	"golang.org/x/text"
 	"log"
 	"os"
 	"os/signal"
