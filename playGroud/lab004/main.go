@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gorilla/websocket"
+	"golang.org/x/text"
 	"log"
 	"os"
 	"os/signal"
@@ -20,6 +21,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("err=%v", err)
 	}
+
+	go func() {
+		time.Sleep(time.Millisecond * 500)
+		//SendMessage(websocket.TextMessage, util.SEND_INFO_TRADE_SC)
+		conn.WriteMessage(websocket.TextMessage, []byte(`4212["market.subscribe","sc:yunbi"]`))
+	}()
 
 	//收消息
 	go func() {
