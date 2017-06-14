@@ -21,10 +21,30 @@ func main() {
 		log.Fatalf("err=%v", err)
 	}
 
+	nowTime := time.Now().Unix()
+
+	go func() {
+		for {
+			time1 := time.Now().Unix()
+			if time1-nowTime > 85 {
+				log.Println("心跳包测试成功", time1-nowTime)
+			}
+			time.Sleep(time.Second * 5)
+		}
+	}()
+
 	go func() {
 		time.Sleep(time.Millisecond * 500)
 		//SendMessage(websocket.TextMessage, util.SEND_INFO_TRADE_SC)
 		conn.WriteMessage(websocket.TextMessage, []byte(`4212["market.subscribe","sc:yunbi"]`))
+	}()
+
+	go func() {
+		time.Sleep(time.Millisecond * 300)
+		for {
+			conn.WriteMessage(websocket.TextMessage, []byte(`2`))
+			time.Sleep(25 * time.Second)
+		}
 	}()
 
 	//收消息
@@ -34,7 +54,8 @@ func main() {
 			if err != nil {
 				log.Fatal("read message error", err)
 			} else {
-				log.Println("收到消息", string(message))
+				_ = message
+				log.Println("收到消息")
 			}
 		}
 	}()
