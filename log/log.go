@@ -2,6 +2,7 @@ package log
 
 import (
 	logrus "github.com/sirupsen/logrus"
+	"os"
 )
 
 func init() {
@@ -10,6 +11,14 @@ func init() {
 	//	panic(err)
 	//}
 	//logrus.SetOutput(file)
+}
+
+func SetFilelog() {
+	file, err := os.Create("tradeInfo.log")
+	if err != nil {
+		Errorf("open log file=%v", err)
+	}
+	logrus.SetOutput(file)
 }
 
 func Debugf(format string, a ...interface{}) {

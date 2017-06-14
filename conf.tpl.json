@@ -1,4 +1,7 @@
 {
+    "LogConf":{
+        "FileLog":true
+    },
     "DBConf":{
         "Username":"username1",
         "Password":"Password2",

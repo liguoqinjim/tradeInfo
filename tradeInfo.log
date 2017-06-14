@@ -1,2 +1,0 @@
-time="2017-06-10T14:10:39+08:00" level=info 
-time="2017-06-10T14:10:39+08:00" level=fatal msg="err=[json: Unmarshal(nil *conf.ConfStruct)]" 

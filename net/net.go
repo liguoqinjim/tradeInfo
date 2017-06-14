@@ -43,9 +43,19 @@ func ReadMessage() {
 }
 
 func InitSendMessage() {
+	//sc初始数据
 	go func() {
 		time.Sleep(time.Millisecond * 500)
 		SendMessage(websocket.TextMessage, util.SEND_INFO_TRADE_SC)
+	}()
+
+	//心跳数据
+	go func() {
+		time.Sleep(time.Millisecond * 300)
+		for {
+			SendMessage(websocket.TextMessage, `2`)
+			time.Sleep(time.Second * 25)
+		}
 	}()
 }
 

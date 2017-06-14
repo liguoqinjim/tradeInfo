@@ -1,6 +1,7 @@
 package msgMgr
 
 import (
+	"fmt"
 	"github.com/tidwall/gjson"
 	"strings"
 	"tradeInfo/db"
@@ -42,7 +43,7 @@ func HandleMessage(message []byte) {
 		s += "}"
 		result := gjson.Get(s, "update:trades")
 
-		log.Infof("开始插入数据,%d", len(result.Array()))
+		log.Info(fmt.Sprintf("插入sc数据%d条", len(result.Array())))
 		if len(result.Array()) > 0 {
 			for _, v := range result.Array() {
 				trade := &Trade{}

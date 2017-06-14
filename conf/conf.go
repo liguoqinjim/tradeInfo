@@ -8,7 +8,12 @@ import (
 )
 
 type ConfStruct struct {
-	DBConf *DBConf
+	LogConf *LogConf
+	DBConf  *DBConf
+}
+
+type LogConf struct {
+	FileLog bool //是否在文件中输出
 }
 
 type DBConf struct {
